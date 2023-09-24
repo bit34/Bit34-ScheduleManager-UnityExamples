@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Com.Bit34Games.Unity.Update;
 
 
 public class AddTest : TestBase
@@ -23,19 +22,19 @@ public class AddTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, Time.frameCount));
 
-        UpdateManager.Add(UpdateCallback, this, null, Settings.TimeType);
+        ScheduleManager.AddTick(this, Settings.TimeType, UpdateCallback);
     }
 
     private void StopTestCallback()
     {
         Debug.Log(string.Format(STOP_INFO, Time.frameCount));
 
-        UpdateManager.Remove(UpdateCallback);
+        ScheduleManager.Remove(this, UpdateCallback);
     }
 
     private void LockTestCallback(bool state){}
 
-    private void UpdateCallback()
+    private void UpdateCallback(float timeStep)
     {
         Debug.Log(string.Format(UPDATE_INFO, Time.frameCount));
     }

@@ -1,25 +1,30 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Com.Bit34Games.Unity.Update;
+using Com.Bit34Games.Time.Unity;
+using Com.Bit34Games.Time.Constants;
+using Com.Bit34Games.Time.Utilities;
 
 
 public class TestBase : MonoBehaviour
 {
     //  MEMBERS
-    public bool         TestActive       { get; private set; }
-    public int          TestFrameCounter { get; private set; }
-    public TestSettings Settings         { get; private set; }
+    public bool             TestActive       { get; private set; }
+    public int              TestFrameCounter { get; private set; }
+    public TestSettings     Settings         { get; private set; }
+    public ITimeManager     TimeManager      { get{ return _timeManager; } }
+    public IScheduleManager ScheduleManager  { get{ return _timeManager.ScheduleManager; } }
 #pragma warning disable 649
     //      For Editor
-    [SerializeField] private Button _testButton;
-    [SerializeField] private Text   _testButtonLabel;
+    [SerializeField] protected TimeManager _timeManager;
+    [SerializeField] private   Button      _testButton;
+    [SerializeField] private   Text        _testButtonLabel;
 #pragma warning restore 649
     //      Internal
-    private   string _startLabel;
-    private   string _stopLabel;
-    private   Action _startAction;
-    private   Action _stopAction;
+    private   string       _startLabel;
+    private   string       _stopLabel;
+    private   Action       _startAction;
+    private   Action       _stopAction;
     private   Action<bool> _lockAction;
 
 
@@ -83,8 +88,8 @@ public class TestBase : MonoBehaviour
         TimeSpan elapsedTime = TimeSpan.FromSeconds(Time.unscaledTime);
         string   elapsed     = string.Format("[Elapsed:{0:00}:{1:00}:{2:00}:{3:D2}]", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
         
-        UpdateTimeTypes timeType = Settings.TimeType;
-        DateTime        timeNow  = UpdateManager.GetNow(timeType);
+        TimeTypes timeType = Settings.TimeType;
+        DateTime        timeNow  = _timeManager.GetNow(timeType);
         string          time     = String.Format("[" + timeType + ":{0:00}:{1:00}:{2:00}:{3:D2}", timeNow.Hour, timeNow.Minute, timeNow.Second, timeNow.Millisecond);
         return elapsed + time;
     }

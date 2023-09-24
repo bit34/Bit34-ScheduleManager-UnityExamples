@@ -1,0 +1,3 @@
+[submodule "Assets/Libraries/ScheduleManager"]
+	path = Assets/Libraries/ScheduleManager
+	url = git@github.com:bit34/Bit34-ScheduleManager-UPM.git

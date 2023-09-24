@@ -1,41 +1,12 @@
-# Dependencies ===============
-Assets/Libraries/
-Assets/Libraries.meta
-
-
-# Config ===============
-Assets/Config/
-Assets/Config.meta
-
-
-# Asset package paths ===============
-Assets/Plugins/
-Assets/Plugins.meta
-Assets/Parse/
-Assets/Parse.meta
-Assets/PlayServicesResolver/
-Assets/PlayServicesResolver.meta
-Assets/Firebase/
-Assets/Firebase.meta
-Assets/Editor Default Resources/Firebase/
-Assets/Editor Default Resources/Firebase.meta
-Assets/GoogleMobileAds/
-Assets/GoogleMobileAds.meta
-Assets/GooglePlayGames/
-Assets/GooglePlayGames.meta
-Assets/OneSignal/
-Assets/OneSignal.meta
-Assets/AssetStoreTools*
-
-
 # ===============
 # Unity generated
-[Tt]emp/
-[Oo]bj/
-[Bb]uild
-[Bb]uilds/
-[Ll]ibrary/
-
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 
 # =====================================
 # Unity3D generated meta files
@@ -68,12 +39,6 @@ sysinfo.txt
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# =====================================
-# Builds
-*.apk
-*.unitypackage
-
 
 # =====================================
 # OS generated

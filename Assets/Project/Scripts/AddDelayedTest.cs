@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Com.Bit34Games.Unity.Update;
 
 
 public class AddDelayedTest : TestBase
@@ -45,7 +44,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, GetTimeString()));
 
-        UpdateManager.Add(UpdateCallback, this, _delay, Settings.TimeType);
+        ScheduleManager.AddInterval(this, Settings.TimeType, UpdateCallback, _delay);
 
         EnablePauseButton();
     }
@@ -54,14 +53,14 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(STOP_INFO, GetTimeString()));
 
-        UpdateManager.Remove(UpdateCallback);
+        ScheduleManager.Remove(this, UpdateCallback);
 
         DisablePauseButton();
     }
 
     private void LockTestCallback(bool state){}
     
-    private void UpdateCallback()
+    private void UpdateCallback(float timeDelta)
     {
         Debug.Log(string.Format(UPDATE_INFO, GetTimeString()));
     }
@@ -84,7 +83,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(PAUSE_INFO, GetTimeString()));
 
-        UpdateManager.PauseAllFrom(this);
+        ScheduleManager.PauseAllFrom(this);
 
         _pauseButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.AddListener(OnResumeButtonClick);
@@ -96,7 +95,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(RESUME_INFO, GetTimeString()));
 
-        UpdateManager.ResumeAllFrom(this);
+        ScheduleManager.ResumeAllFrom(this);
 
         _pauseButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.AddListener(OnPauseButtonClick);

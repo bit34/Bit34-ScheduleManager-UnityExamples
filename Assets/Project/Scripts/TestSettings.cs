@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
+using Com.Bit34Games.Time.Constants;
 using UnityEngine;
 using UnityEngine.UI;
-using Com.Bit34Games.Unity.Update;
 
 
 public class TestSettings : MonoBehaviour
 {
     //  MEMBERS
-    public UpdateTimeTypes TimeType{get; private set;}
+    public TimeTypes TimeType{get; private set;}
 #pragma warning disable 649
     //      For Editor
     [SerializeField] private Text   _settingLabel;
@@ -87,19 +87,19 @@ public class TestSettings : MonoBehaviour
 
     private void UseUtc()
     {
-        TimeType = UpdateTimeTypes.Utc;
+        TimeType = TimeTypes.Utc;
         Time.timeScale = 1.0f;
     }
 
     private void UseUnityUnscaled()
     {
-        TimeType = UpdateTimeTypes.UnityUnscaled;
+        TimeType = TimeTypes.Application;
         Time.timeScale = 1.0f;
     }
 
     private void UseUnityScaled()
     {
-        TimeType = UpdateTimeTypes.UnityScaled;
+        TimeType = TimeTypes.ApplicationScaled;
         Time.timeScale = 0.5f;
     }
 }

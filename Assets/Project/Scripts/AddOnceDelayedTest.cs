@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Com.Bit34Games.Unity.Update;
 
 
 public class AddOnceDelayedTest : TestBase
@@ -31,21 +30,21 @@ public class AddOnceDelayedTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, DELAY_SECONDS, GetTimeString()));
 
-        UpdateManager.AddOnce(UpdateCallback, this, _delay, Settings.TimeType);
+        ScheduleManager.AddInterval(this, Settings.TimeType, UpdateCallback, _delay, 1);
     }
 
     private void StopTestCallback()
     {
         Debug.Log("Update once are cancelled(with 3 seconds delay)");
 
-        UpdateManager.RemoveAllFrom(this);
+        ScheduleManager.RemoveAllFrom(this);
 
         CancelTest();
     }
 
     private void LockTestCallback(bool state){}
     
-    private void UpdateCallback()
+    private void UpdateCallback(float timeStep)
     {
         Debug.Log("Update once called(with 3 seconds delay) > Time > " + GetTimeString());
 
