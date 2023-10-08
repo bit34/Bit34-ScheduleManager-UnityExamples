@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 22968406}
   - component: {fileID: 22968413}
   - component: {fileID: 22968405}
-  - component: {fileID: 22968410}
   m_Layer: 5
   m_Name: TestCanvas
   m_TagString: Untagged
@@ -256,18 +255,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &22968410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22968404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e1d8cee5d614a509405c3a9f09c11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &22968413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2c33343a63b4e689619ebb20f89b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeManager: {fileID: 22968410}
+  _timeForUnity: {fileID: 649012944}
   _testButton: {fileID: 1864217210}
   _testButtonLabel: {fileID: 492087823}
 --- !u!114 &116111354
@@ -1151,6 +1138,49 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &649012943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649012945}
+  - component: {fileID: 649012944}
+  m_Layer: 0
+  m_Name: TimeObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &649012944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649012943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e1d8cee5d614a509405c3a9f09c11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &649012945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649012943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &825236376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ca16128025e48a7a04e9143e1586bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeManager: {fileID: 22968410}
+  _timeForUnity: {fileID: 649012944}
   _testButton: {fileID: 1023724194}
   _testButtonLabel: {fileID: 1567301850}
 --- !u!114 &917505032
@@ -1682,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e95a1f9080694806a07f051dc300714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeManager: {fileID: 22968410}
+  _timeForUnity: {fileID: 649012944}
   _testButton: {fileID: 1687831466}
   _testButtonLabel: {fileID: 608208937}
   _pauseButton: {fileID: 1269971417}
@@ -1776,7 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68225f9404bf4b60b0d57515b79b321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeManager: {fileID: 22968410}
+  _timeForUnity: {fileID: 649012944}
   _testButton: {fileID: 957773998}
   _testButtonLabel: {fileID: 1133659966}
 --- !u!114 &1230247175

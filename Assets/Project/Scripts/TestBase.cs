@@ -12,11 +12,10 @@ public class TestBase : MonoBehaviour
     public bool             TestActive       { get; private set; }
     public int              TestFrameCounter { get; private set; }
     public TestSettings     Settings         { get; private set; }
-    public ITimeManager     TimeManager      { get{ return _timeManager; } }
-    public IScheduleManager ScheduleManager  { get{ return _timeManager.ScheduleManager; } }
+    public TimeManager      Manager          { get{ return _timeForUnity.Manager; } }
 #pragma warning disable 649
     //      For Editor
-    [SerializeField] protected TimeManager _timeManager;
+    [SerializeField] protected TimeForUnity _timeForUnity;
     [SerializeField] private   Button      _testButton;
     [SerializeField] private   Text        _testButtonLabel;
 #pragma warning restore 649
@@ -89,8 +88,9 @@ public class TestBase : MonoBehaviour
         string   elapsed     = string.Format("[Elapsed:{0:00}:{1:00}:{2:00}:{3:D2}]", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
         
         TimeTypes timeType = Settings.TimeType;
-        DateTime        timeNow  = _timeManager.GetNow(timeType);
-        string          time     = String.Format("[" + timeType + ":{0:00}:{1:00}:{2:00}:{3:D2}", timeNow.Hour, timeNow.Minute, timeNow.Second, timeNow.Millisecond);
+        DateTime  timeNow  = _timeForUnity.GetNow(timeType);
+        string    time     = String.Format("[" + timeType + ":{0:00}:{1:00}:{2:00}:{3:D2}", timeNow.Hour, timeNow.Minute, timeNow.Second, timeNow.Millisecond);
+
         return elapsed + time;
     }
 

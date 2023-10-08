@@ -30,14 +30,14 @@ public class AddOnceDelayedTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, DELAY_SECONDS, GetTimeString()));
 
-        ScheduleManager.AddInterval(this, Settings.TimeType, UpdateCallback, _delay, 1);
+        Manager.Scheduler.AddInterval(this, Settings.TimeType, UpdateCallback, _delay, 1);
     }
 
     private void StopTestCallback()
     {
         Debug.Log("Update once are cancelled(with 3 seconds delay)");
 
-        ScheduleManager.RemoveAllFrom(this);
+        Manager.Scheduler.RemoveAllFrom(this);
 
         CancelTest();
     }

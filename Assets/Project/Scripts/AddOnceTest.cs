@@ -22,14 +22,14 @@ public class AddOnceTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, Time.frameCount));
 
-        ScheduleManager.AddTick(this, Settings.TimeType, UpdateCallback, 1);
+        Manager.Scheduler.AddTick(this, Settings.TimeType, UpdateCallback, 1);
     }
 
     private void StopTestCallback()
     {
         Debug.Log(string.Format(STOP_INFO, Time.frameCount));
 
-        ScheduleManager.Remove(this, UpdateCallback);
+        Manager.Scheduler.Remove(this, UpdateCallback);
 
         CancelTest();
     }

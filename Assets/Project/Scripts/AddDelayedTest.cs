@@ -44,7 +44,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(START_INFO, GetTimeString()));
 
-        ScheduleManager.AddInterval(this, Settings.TimeType, UpdateCallback, _delay);
+        Manager.Scheduler.AddInterval(this, Settings.TimeType, UpdateCallback, _delay);
 
         EnablePauseButton();
     }
@@ -53,7 +53,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(STOP_INFO, GetTimeString()));
 
-        ScheduleManager.Remove(this, UpdateCallback);
+        Manager.Scheduler.Remove(this, UpdateCallback);
 
         DisablePauseButton();
     }
@@ -83,7 +83,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(PAUSE_INFO, GetTimeString()));
 
-        ScheduleManager.PauseAllFrom(this);
+        Manager.Scheduler.PauseAllFrom(this);
 
         _pauseButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.AddListener(OnResumeButtonClick);
@@ -95,7 +95,7 @@ public class AddDelayedTest : TestBase
     {
         Debug.Log(string.Format(RESUME_INFO, GetTimeString()));
 
-        ScheduleManager.ResumeAllFrom(this);
+        Manager.Scheduler.ResumeAllFrom(this);
 
         _pauseButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.AddListener(OnPauseButtonClick);
