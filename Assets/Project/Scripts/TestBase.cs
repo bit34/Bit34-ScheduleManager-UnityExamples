@@ -88,7 +88,7 @@ public class TestBase : MonoBehaviour
         string   elapsed     = string.Format("[Elapsed:{0:00}:{1:00}:{2:00}:{3:D2}]", elapsedTime.Hours, elapsedTime.Minutes, elapsedTime.Seconds, elapsedTime.Milliseconds);
         
         TimeTypes timeType = Settings.TimeType;
-        DateTime  timeNow  = _timeForUnity.GetNow(timeType);
+        DateTime  timeNow  = Manager.Time.GetNow(timeType);
         string    time     = String.Format("[" + timeType + ":{0:00}:{1:00}:{2:00}:{3:D2}", timeNow.Hour, timeNow.Minute, timeNow.Second, timeNow.Millisecond);
 
         return elapsed + time;
